@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import firebase from './config/firebase';
 
 console.log('firebase',firebase);
-
 ReactDOM.render(
   <React.StrictMode>
     <App />
