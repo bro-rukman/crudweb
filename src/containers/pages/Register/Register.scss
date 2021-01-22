@@ -49,8 +49,15 @@ button.btn{
     text-transform: uppercase;
     font-weight: bold;
     outline: none;
-    &hover{
+    &:hover{
         cursor: pointer;
         background: #1873bb;
+    }
+    &.disable{
+        background: gray;
+        border: 1px solid gray;
+        &:hover{
+            cursor: not-allowed;
+        }
     }
 }

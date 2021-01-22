@@ -1,12 +1,10 @@
 // import React,{Fragment} from 'react';
-import logo from '../../../assets/img/logo/logo.svg';
 // import './App.css';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
-import { Fragment } from 'react';
 import Login from '../Login'
 import Dashboard from '../Dashboard';
 import Register from '../Register'
-import store from '../../../config/redux/store'
+import {store} from '../../../config/redux'
 import {Provider} from 'react-redux';
 
 function App() {

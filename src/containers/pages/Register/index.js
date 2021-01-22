@@ -1,12 +1,18 @@
 import { Component } from "react"
 import './Register.scss';
-import firebase from '../../../config/firebase';
+import {connect} from 'react-redux';
+import {registerUserAPI} from '../../../config/redux/action';
+
+// import { Button } from "bootstrap";
+import Button from '../../../components/atoms/button'
+
 // import 'bootstrap/dist/css';
 
 class Register extends Component{
     state={
         email :'',
-        password:''
+        password:'',
+        isLoading : false
     }
     handleChangeText=(e)=>{
         // console.log('data',e.target.id);
@@ -17,14 +23,17 @@ class Register extends Component{
     handleRegisterSubmit=()=>{
         const {email,password} = this.state;
         console.log('data',email,password);
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then((res) => {
-            console.log('success', res);
-        }).catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            console.log('err',errorCode,errorMessage);
-        });
+        this.props.registerAPI({email, password});
+        // menggunakan fungsi button untuk menghandle ketika ferivikasi data ke firebase dari sisi ux nya
+        // this.setState({
+        //     isLoading:true
+        // })
+        // setTimeout(() => {
+        //     this.setState({
+        //         isLoading:false
+        //     })
+        // }, 2000);
+        
     }
     render(){
         return(
@@ -33,12 +42,18 @@ class Register extends Component{
                 <p className='auth-title'>Register Page</p>
                 <input className='input' type="text" id="email" placeholder='Email' onChange={this.handleChangeText}/>
                 <input className='input' type='password' id="password" placeholder='Password' onChange={this.handleChangeText}/>
-                <button className='btn' onClick={this.handleRegisterSubmit}>Register</button>
+                <Button onClick={this.handleRegisterSubmit} title ="Register" loading={this.props.isLoading}/>
                 </div>
                 {/* <button>Go to Dashboard</button> */}
             </div>
         )
     }
 }
+const reduxState =(state)=>({
+    isLoading : state.isLoading,
+});
+const reduxDispatch =(dispatch)=>({
+    registerAPI : (data)=>dispatch(registerUserAPI(data))
+})
 
-export default Register;
+export default connect(reduxState,reduxDispatch)(Register);
