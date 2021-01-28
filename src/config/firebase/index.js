@@ -1,8 +1,8 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
-// import 'firebase/firestore';
+import 'firebase/database';
 
-var firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyDTRIQ6LC4nXCr7U0FkpESQUJ42-kTAKak",
     authDomain: "crudweb-simple.firebaseapp.com",
     projectId: "crudweb-simple",
@@ -14,5 +14,6 @@ var firebaseConfig = {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 //   firebase.analytics();
+export const Database = firebase.database();
 
   export default firebase;

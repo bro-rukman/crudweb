@@ -4,7 +4,8 @@ const initialState ={
     popup : false,
     isLogin : false,
     isLoading: false,
-    user : 'endang'
+    user : {},
+    notes : []
   }
   const reducer =(state=initialState,action)=>{
     switch (action.type) {
@@ -32,20 +33,16 @@ const initialState ={
               isLoading : action.value
             }
             // break;
+        case actionType.SET_NOTES :
+            return{
+              ...state,
+              notes : action.value
+            }
+            // break;
     
         default:
             break;
     }
-
-    // if (action.type==='CHANGE_POPUP') {
-    // }
-    // if (action.type==='CHANGE_ISLOGIN') {
-    //   return{
-    //     ...state,
-    //     isLogin : action.value
-    //   }
-    // }
-    // return state;
   }
 
   export default reducer;

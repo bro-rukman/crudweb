@@ -1,8 +1,55 @@
-.dashboard{
-    p{
-
+.container{
+    .col{
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        padding: 16px;
+        box-shadow: 4px 3px 9px rgba(0, 0, 0, 0.1);
+        margin-bottom: 8px;
+        position: relative;
+        transition: ease 0.35s;
+        &:hover{
+            transform: translateY(-4px);
+            background: rgba(0, 0, 0, 0.1);
+        }
+        button{
+            border-radius: 5px;
+            border: 1px solid gray;
+            margin: 0px 10px;
+            justify-content: space-between;
+        }
+        .delete-btn{
+            width: 25px;
+            height: 25px;
+            background-color: red;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: -10px;
+            right: -17px;
+            border: none;
+            box-shadow: 4px 6px 9px rgba(0, 0, 0, 0.1);
+            &:hover{
+                color:black;
+            }
+        }
     }
     button{
-        margin: 20px;
+        border-radius: 5px;
+        border: 1px solid gray;
+    }
+    .title{
+        font-weight: bold;
+        font-size: 18px;
+    }
+    .date{
+        font-style: italic;
+        font-size: 12px;
+    }
+    .content{
+        font-size: 16px;
     }
 }
